@@ -6,8 +6,16 @@ initparam=[0,90,0.2,0,180,0];
 
 figure
 plot3(0,0,0)
+axis 'off'
+axis tight manual
 
-multiplot(initparam)
+for i = 1:2:90
+  multiplot([i,90,0.2,0,180,0]) 
+  pause(0.1)
+  
+end
+
+
 
 
 
@@ -75,14 +83,14 @@ function nextCenter=oneplot(prevcenter,T)
     
     hold off
     
-    
-    
+
 
 end
 
 
 function [T] = multiplot(param)
 [T00,T01,T12,T23,T34,T45,T56,Etip] =  forwardKinematics(param(1),param(2),param(3),param(4),param(5),param(6));
+plot3(0,0,0)
 nextCenter=oneplot([0;0;0],T00)
 nextCenter=oneplot([0;0;0],T01)
 nextCenter=oneplot(nextCenter,T01*T12)
@@ -97,4 +105,7 @@ nextCenter=oneplot(nextCenter,T01*T12*T23*T34*T45)
 nextCenter=oneplot(nextCenter,T01*T12*T23*T34*T45*T56)
 
 axis 'equal'
+
+
+
 end
