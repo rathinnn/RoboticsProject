@@ -7,10 +7,10 @@ initparam=[0,90,0.2,0,180,0];
 figure
 plot3(0,0,0)
 
-NextCenter=[-0.8654;0.3793;0.7620];
+NExtCenter=[];
 
 for i = 1:1:90
-  NextCenter=[NextCenter multiplot([i,90,0.2+0.005*i,i,180+i,0],NextCenter)];
+  NextCenter=[NextCenter multiplot(initparam,[i,90,0.2,0,180,0])]; 
   pause(0.01)
   
 end
@@ -88,12 +88,10 @@ function nextCenter=oneplot(prevcenter,T)
 end
 
 
-function nextCenter= multiplot(param,points)
+function nextCenter= multiplot(initparam,param)
 [T00,T01,T12,T23,T34,T45,T56,Etip] =  forwardKinematics(param(1),param(2),param(3),param(4),param(5),param(6));
 plot3(0,0,0)
-hold on
-plot3(points(1,:),points(2,:),points(3,:))
-hold off
+initplot(initparam)
 nextCenter=oneplot([0;0;0],T00);
 nextCenter=oneplot([0;0;0],T01);
 nextCenter=oneplot(nextCenter,T01*T12);
