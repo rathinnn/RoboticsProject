@@ -1,21 +1,20 @@
 close all
 %clear all
 
-%initparam=[0,90,0.2,0,180,0];
-initparam=[0,0,0,0,0,0];
+initparam=[0,90,0.2,0,180,0];
 
 
 
 NextCenter=[-0.8654;0.3793;0.7620];
 
-Stanfordmove([96  -89   0.01   0 -96 179]);
+%Stanfordmove([45,45,0.4,0,180,0]);
 
 Stanfordmove(initparam);
-%[T00,T01,T12,T23,T34,T45,T56,Etip] =  forwardKinematics(0,90,0.2,0,180,0);
+%[T00,T01,T12,T23,T34,T45,T56,Etip] =  forwardKinematics(0,0,0,0,0,0);
 
 function Stanfordmove(finalparam)
 
-
+figure
 plot3(0,0,0)
 grid on
 NextCenter=[-0.8654;0.3793;0.7620];
