@@ -99,47 +99,54 @@ showdetails(robot)
 
 
  Rob = SerialLink (L);
- Rob.name = 'L Arm';
+ Rob.name = 'Scara';
  
  
- 
- x=randi([12,27],[1,4]);
+ g=randperm(15);
+ x=12+g(1:4);
  y=zeros(1,4);
  z=zeros(1,4);
+ h=figure;
+%  for i=1:4
+%      ymin=0;
+%      ymax=27^2-x(1,i)^2;
+%      ymax=sqrt(ymax);
+%      ymax=fix(ymax);
+%      g=randperm(ymax-ymin);
+%      y(1,i)=ymin+g(1);
+%      z(1,i)=-35;
+%      
+%  end
+%  figure
  
- for i=1:4
-     ymin=0;
-     ymax=27^2-x(1,i)^2;
-     ymax=sqrt(ymax);
-     ymax=fix(ymax);
-     y(1,i)=randi([ymin,ymax]);
-     z(1,i)=-35;
-     
- end
- figure
  
- demo(robot,Rob,x,y,z,-27,0)
+ x=[12 20 7 11];
+ y=[-14 18 -26 21];
+ z=[-35 -35 -35 -35];
+ demo(robot,Rob,x,y,z,-27,0,h)
  
  
- function demo(robot,Rob,x,y,z,destx,desty)
+ function demo(robot,Rob,x,y,z,destx,desty,h)
+ 
  initparam=[0,0,0,0];
- scatter3(x,y,z,15,'filled')
+ scatter3(x,y,z,65,'filled')
  hold on
- scatter3(-27,0,-35,100,'x')
+ scatter3(-27,0,-35,100,'k','filled')
  hold off
  donex=[];
  doney=[];
  donez=[];
- 
+ check=true;
  for i= 1:4
-     initparam=reach(initparam,robot,Rob,x(1,i),y(1,i))
+     initparam=reach(initparam,robot,Rob,x(1,i),y(1,i),h,check)
+     check=false;
      donex(i)=x(1,i);
      doney(i)=y(1,i);
      donez(i)=-35;
      hold on
-     scatter3(donex,doney,donez,15,'red','filled')
+     scatter3(donex,doney,donez,45,'red','filled')
      hold off
-     initparam=reach(initparam,robot,Rob,destx,desty)
+     initparam=reach(initparam,robot,Rob,destx,desty,h,false)
      
      
  end
@@ -151,9 +158,9 @@ showdetails(robot)
  %reach(robot,Rob,12,14)
  
  
- function initparam=reach(initparam,robot,Rob,x,y)
+ function initparam=reach(initparam,robot,Rob,x,y,h,write)
 ik = inverseKinematics('RigidBodyTree',robot);
-weights = [0 0 0 6 6 0];
+weights = [0 0 0 1 1 0];
 initialguess = robot.homeConfiguration;
 initialguess(1).JointPosition = 0;
 initialguess(2).JointPosition = 0;
@@ -171,14 +178,17 @@ Etv=[
 vals = [configSoln(:).JointPosition];
 
 
-param=round(vals,2);
+param=round(vals,5);
 param(3)=15;
 %NextCenter=[-0.8654;0.3793;0.7620];
 
-initparam=Scaramove(initparam,Rob,param);
+initparam=Scaramove(initparam,Rob,param,h,write);
 
 param(3)=40;
-initparam=Scaramove(initparam,Rob,param);
+initparam=Scaramove(initparam,Rob,param,h,false);
+
+param(3)=15;
+initparam=Scaramove(initparam,Rob,param,h,false);
 
 %Rob.fkine(param)
 
@@ -186,21 +196,32 @@ initparam=Scaramove(initparam,Rob,param);
 
 
  
- function initparam= Scaramove(initparam,Rob,finalparam)
+ function initparam= Scaramove(initparam,Rob,finalparam,h,write)
 
 
 
-
+filename = 'output1.gif';
 
 
 i=1;
-
+n=1;
 while(i==1)
     i=0;
     %NextCenter=[NextCenter multiplot(initparam,NextCenter)];
-    Rob.plot(initparam)
     hold on
-    pause(0.001)
+    Rob.plot(initparam)
+    frame = getframe(h); 
+      im = frame2im(frame); 
+      [imind,cm] = rgb2ind(im,256); 
+      % Write to the GIF File 
+      if write
+          imwrite(imind,cm,filename,'gif', 'DelayTime',0.1,'Loopcount',inf); 
+          write=false;
+      else 
+          imwrite(imind,cm,filename,'gif','DelayTime',0.1,'WriteMode','append'); 
+      end 
+    
+    pause(0.0001)
     for j=1:4
         if(j==3)
             if(initparam(3)>finalparam(3))
@@ -222,18 +243,29 @@ while(i==1)
             
         else
              if(initparam(j)>finalparam(j))
-                
-                if(abs(initparam(j)-finalparam(j))>0.1)
+                 
+                if(abs(initparam(j)-finalparam(j))>0.05)
                     
-                initparam(j)=initparam(j)-0.1;
+                initparam(j)=initparam(j)-0.05;
+                i=1;
+                
+                
+             elseif(abs(initparam(j)-finalparam(j))>0.001)
+                    
+                initparam(j)=initparam(j)-0.001;
                 i=1;
                 end
                 
             elseif(initparam(j)<finalparam(j))
-               
-                if(abs(initparam(j)-finalparam(j))>0.1)
+                if(abs(initparam(j)-finalparam(j))>0.05)
                     
-                initparam(j)=initparam(j)+0.1;
+                initparam(j)=initparam(j)+0.05;
+                i=1;
+                
+               
+            elseif(abs(initparam(j)-finalparam(j))>0.001)
+                    
+                initparam(j)=initparam(j)+0.001;
                 i=1;
                 end
             end
