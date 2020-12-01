@@ -8,9 +8,8 @@ initparam=[0,0,0,0];
  close all
 
  
-eo = 10.25;  ua = 9;
   
-  L(1) = Link('d', 6, 'a', 4, 'alpha', pi);
+  L(1) = Link('d', 6, 'a', 12, 'alpha', pi);
   L(2) = Link('d', 0, 'a', 15, 'alpha', 0);
   L(3) = Link('theta', 0, 'a', 0, 'alpha', 0);
   L(3).qlim = [0,10];
@@ -26,17 +25,13 @@ eo = 10.25;  ua = 9;
 % d4=0.1;
 
 
-
-
- 
  Rob = SerialLink (L);
  Rob.name = 'L Arm';
  
+  Rob.fkine([0,0,40,0])
  
  
- 
- 
- Scaramove(Rob,[pi/4,0,35,0]);
+ Scaramove(Rob,[0,0,40,0]);
  
  function Scaramove(Rob,finalparam)
 
@@ -102,7 +97,7 @@ hold off
 end
  
  
- %Rob.fkine([ q1 ,q2 ,q3,q4 ])
+
 
 % NextCenter=[0.55;0;0.5];
 % 

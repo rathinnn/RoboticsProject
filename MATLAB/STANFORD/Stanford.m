@@ -5,7 +5,7 @@ clc
 initparam=[0,90,0.2,0,180,0];
 %initparam=[0,0,0,0,0,0];
 
-draw(5)
+draw(6)
 
 function draw(g)
 initparam=[0,90,0.2,0,180,0];
