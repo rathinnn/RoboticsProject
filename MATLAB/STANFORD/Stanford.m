@@ -5,230 +5,231 @@ clc
 initparam=[0,90,0.2,0,180,0];
 %initparam=[0,0,0,0,0,0];
 
-draw(6)
+x = input('Enter number from 0 to 9');
+draw(x)
 
 function draw(g)
 initparam=[0,90,0.2,0,180,0];
-    if(g==1)
-
-
-NextCenter=[-0.8654;0.3793;0.7620];
-param=[2,90,0.2,0,180,0];
-NextCenter=Stanfordmove(initparam,param,NextCenter);
-
-param2=[-2,90,0.2,0,180,0];
-NextCenter=Stanfordmove(param,param2,NextCenter);
-
-param3=[0,90,0.2,0,180,0];
-NextCenter=Stanfordmove(param2,param3,NextCenter);
-
-param4=[0,100,0.2,0,180,0];
-NextCenter=Stanfordmove(param3,param4,NextCenter);
-
-param5=[-2,100,0.2,0,180,0];
-NextCenter=Stanfordmove(param4,param5,NextCenter);
-
-param6=[-3,98,0.2,0,180,0];
-NextCenter=Stanfordmove(param5,param6,NextCenter);
-
-    elseif g==2
-
-
-NextCenter=[-0.8654;0.3793;0.7620];
-param=[-10,90,0.2,0,180,0];
-NextCenter=Stanfordmove(initparam,param,NextCenter);
-
-param2=[-10,100,0.2,0,180,0];
-NextCenter=Stanfordmove(param,param2,NextCenter);
-
-param3=[0,100,0.2,0,180,0];
-NextCenter=Stanfordmove(param2,param3,NextCenter);
-
-param4=[0,110,0.2,0,180,0];
-NextCenter=Stanfordmove(param3,param4,NextCenter);
-
-param5=[-10,110,0.2,0,180,0];
-NextCenter=Stanfordmove(param4,param5,NextCenter);
-
-    elseif g==5
-
-NextCenter=[-0.8654;0.3793;0.7620];
-param=[10,90,0.2,0,180,0];
-NextCenter=Stanfordmove(initparam,param,NextCenter);
-
-param2=[10,100,0.2,0,180,0];
-NextCenter=Stanfordmove(param,param2,NextCenter);
-
-param3=[0,100,0.2,0,180,0];
-NextCenter=Stanfordmove(param2,param3,NextCenter);
-
-param4=[0,110,0.2,0,180,0];
-NextCenter=Stanfordmove(param3,param4,NextCenter);
-
-param5=[10,110,0.2,0,180,0];
-NextCenter=Stanfordmove(param4,param5,NextCenter);
-
-    elseif g==3
-
-
-NextCenter=[-0.8654;0.3793;0.7620];
-param=[10,90,0.2,0,180,0];
-NextCenter=Stanfordmove(initparam,param,NextCenter);
-
-param2=[10,100,0.2,0,180,0];
-NextCenter=Stanfordmove(param,param2,NextCenter);
-
-
-param3=[0,100,0.2,0,180,0];
-NextCenter=Stanfordmove(param2,param3,NextCenter);
-
-param4=[10,100,0.2,0,180,0];
-NextCenter=Stanfordmove(param3,param4,NextCenter);
-
-param5=[10,110,0.2,0,180,0];
-NextCenter=Stanfordmove(param4,param5,NextCenter);
-
-param6=[0,110,0.2,0,180,0];
-NextCenter=Stanfordmove(param5,param6,NextCenter);
-
-
-    elseif g==4
-
-NextCenter=[-0.8654;0.3793;0.7620];
-param=[10,90,0.2,0,180,0];
-NextCenter=Stanfordmove(initparam,param,NextCenter);
-
-param2=[0,90,0.2,0,180,0];
-NextCenter=Stanfordmove(param,param2,NextCenter);
-
-param3=[0,100,0.2,0,180,0];
-NextCenter=Stanfordmove(param2,param3,NextCenter);
-
-param4=[0,90,0.2,0,180,0];
-NextCenter=Stanfordmove(param3,param4,NextCenter);
-
-param5=[5,90,0.2,0,180,0];
-NextCenter=Stanfordmove(param4,param5,NextCenter);
-
-param6=[5,95,0.2,0,180,0];
-NextCenter=Stanfordmove(param5,param6,NextCenter);
-
-param7=[5,85,0.2,0,180,-90];
-NextCenter=Stanfordmove(param6,param7,NextCenter);
-
-
-    elseif g==0
-
-NextCenter=[-0.8654;0.3793;0.7620];
-param=[6,90,0.2,0,180,0];
-NextCenter=Stanfordmove(initparam,param,NextCenter);
-
-param2=[8,102,0.2,0,180,0];
-NextCenter=Stanfordmove(param,param2,NextCenter);
-
-param3=[0,104,0.2,0,180,0];
-NextCenter=Stanfordmove(param2,param3,NextCenter);
-
-param4=[-2,92,0.2,0,180,0];
-NextCenter=Stanfordmove(param3,param4,NextCenter);
-
-param5=[0,90,0.2,0,180,0];
-NextCenter=Stanfordmove(param4,param5,NextCenter);
-
-param6=[0,88,0.2,0,180,90];
-NextCenter=Stanfordmove(param5,param6,NextCenter);
-
-    elseif g==6
-
-
-NextCenter=[-0.8654;0.3793;0.7620];
-param=[0,110,0.2,0,180,0];
-NextCenter=Stanfordmove(initparam,param,NextCenter);
-
-param2=[10,110,0.2,0,180,0];
-NextCenter=Stanfordmove(param,param2,NextCenter);
-
-param3=[0,110,0.2,0,180,0];
-NextCenter=Stanfordmove(param2,param3,NextCenter);
-
-param4=[0,90,0.2,0,180,0];
-NextCenter=Stanfordmove(param3,param4,NextCenter);
-
-param5=[10,90,0.2,0,180,0];
-NextCenter=Stanfordmove(param4,param5,NextCenter);
-
-param6=[10,100,0.2,0,180,0];
-NextCenter=Stanfordmove(param5,param6,NextCenter);
-
-param7=[-1,100,0.2,0,180,90];
-NextCenter=Stanfordmove(param6,param7,NextCenter);
-
-    elseif g==7
-
-
-
-NextCenter=[-0.8654;0.3793;0.7620];
-param=[0,100,0.2,0,170,0];
-NextCenter=Stanfordmove(initparam,param,NextCenter);
-
-param2=[0,100,0.2,0,180,90];
-NextCenter=Stanfordmove(param,param2,NextCenter);
-
-
+if(g==1)
+    
+    
+    NextCenter=[-0.8654;0.3793;0.7620];
+    param=[2,90,0.2,0,180,0];
+    NextCenter=Stanfordmove(initparam,param,NextCenter);
+    
+    param2=[-2,90,0.2,0,180,0];
+    NextCenter=Stanfordmove(param,param2,NextCenter);
+    
+    param3=[0,90,0.2,0,180,0];
+    NextCenter=Stanfordmove(param2,param3,NextCenter);
+    
+    param4=[0,100,0.2,0,180,0];
+    NextCenter=Stanfordmove(param3,param4,NextCenter);
+    
+    param5=[-2,100,0.2,0,180,0];
+    NextCenter=Stanfordmove(param4,param5,NextCenter);
+    
+    param6=[-3,98,0.2,0,180,0];
+    NextCenter=Stanfordmove(param5,param6,NextCenter);
+    
+elseif g==2
+    
+    
+    NextCenter=[-0.8654;0.3793;0.7620];
+    param=[-10,90,0.2,0,180,0];
+    NextCenter=Stanfordmove(initparam,param,NextCenter);
+    
+    param2=[-10,100,0.2,0,180,0];
+    NextCenter=Stanfordmove(param,param2,NextCenter);
+    
+    param3=[0,100,0.2,0,180,0];
+    NextCenter=Stanfordmove(param2,param3,NextCenter);
+    
+    param4=[0,110,0.2,0,180,0];
+    NextCenter=Stanfordmove(param3,param4,NextCenter);
+    
+    param5=[-10,110,0.2,0,180,0];
+    NextCenter=Stanfordmove(param4,param5,NextCenter);
+    
+elseif g==5
+    
+    NextCenter=[-0.8654;0.3793;0.7620];
+    param=[10,90,0.2,0,180,0];
+    NextCenter=Stanfordmove(initparam,param,NextCenter);
+    
+    param2=[10,100,0.2,0,180,0];
+    NextCenter=Stanfordmove(param,param2,NextCenter);
+    
+    param3=[0,100,0.2,0,180,0];
+    NextCenter=Stanfordmove(param2,param3,NextCenter);
+    
+    param4=[0,110,0.2,0,180,0];
+    NextCenter=Stanfordmove(param3,param4,NextCenter);
+    
+    param5=[10,110,0.2,0,180,0];
+    NextCenter=Stanfordmove(param4,param5,NextCenter);
+    
+elseif g==3
+    
+    
+    NextCenter=[-0.8654;0.3793;0.7620];
+    param=[10,90,0.2,0,180,0];
+    NextCenter=Stanfordmove(initparam,param,NextCenter);
+    
+    param2=[10,100,0.2,0,180,0];
+    NextCenter=Stanfordmove(param,param2,NextCenter);
+    
+    
+    param3=[0,100,0.2,0,180,0];
+    NextCenter=Stanfordmove(param2,param3,NextCenter);
+    
+    param4=[10,100,0.2,0,180,0];
+    NextCenter=Stanfordmove(param3,param4,NextCenter);
+    
+    param5=[10,110,0.2,0,180,0];
+    NextCenter=Stanfordmove(param4,param5,NextCenter);
+    
+    param6=[0,110,0.2,0,180,0];
+    NextCenter=Stanfordmove(param5,param6,NextCenter);
+    
+    
+elseif g==4
+    
+    NextCenter=[-0.8654;0.3793;0.7620];
+    param=[10,90,0.2,0,180,0];
+    NextCenter=Stanfordmove(initparam,param,NextCenter);
+    
+    param2=[0,90,0.2,0,180,0];
+    NextCenter=Stanfordmove(param,param2,NextCenter);
+    
+    param3=[0,100,0.2,0,180,0];
+    NextCenter=Stanfordmove(param2,param3,NextCenter);
+    
+    param4=[0,90,0.2,0,180,0];
+    NextCenter=Stanfordmove(param3,param4,NextCenter);
+    
+    param5=[5,90,0.2,0,180,0];
+    NextCenter=Stanfordmove(param4,param5,NextCenter);
+    
+    param6=[5,95,0.2,0,180,0];
+    NextCenter=Stanfordmove(param5,param6,NextCenter);
+    
+    param7=[5,85,0.2,0,180,-90];
+    NextCenter=Stanfordmove(param6,param7,NextCenter);
+    
+    
+elseif g==0
+    
+    NextCenter=[-0.8654;0.3793;0.7620];
+    param=[6,90,0.2,0,180,0];
+    NextCenter=Stanfordmove(initparam,param,NextCenter);
+    
+    param2=[8,102,0.2,0,180,0];
+    NextCenter=Stanfordmove(param,param2,NextCenter);
+    
+    param3=[0,104,0.2,0,180,0];
+    NextCenter=Stanfordmove(param2,param3,NextCenter);
+    
+    param4=[-2,92,0.2,0,180,0];
+    NextCenter=Stanfordmove(param3,param4,NextCenter);
+    
+    param5=[0,90,0.2,0,180,0];
+    NextCenter=Stanfordmove(param4,param5,NextCenter);
+    
+    param6=[0,88,0.2,0,180,90];
+    NextCenter=Stanfordmove(param5,param6,NextCenter);
+    
+elseif g==6
+    
+    
+    NextCenter=[-0.8654;0.3793;0.7620];
+    param=[0,110,0.2,0,180,0];
+    NextCenter=Stanfordmove(initparam,param,NextCenter);
+    
+    param2=[10,110,0.2,0,180,0];
+    NextCenter=Stanfordmove(param,param2,NextCenter);
+    
+    param3=[0,110,0.2,0,180,0];
+    NextCenter=Stanfordmove(param2,param3,NextCenter);
+    
+    param4=[0,90,0.2,0,180,0];
+    NextCenter=Stanfordmove(param3,param4,NextCenter);
+    
+    param5=[10,90,0.2,0,180,0];
+    NextCenter=Stanfordmove(param4,param5,NextCenter);
+    
+    param6=[10,100,0.2,0,180,0];
+    NextCenter=Stanfordmove(param5,param6,NextCenter);
+    
+    param7=[-1,100,0.2,0,180,90];
+    NextCenter=Stanfordmove(param6,param7,NextCenter);
+    
+elseif g==7
+    
+    
+    
+    NextCenter=[-0.8654;0.3793;0.7620];
+    param=[0,100,0.2,0,170,0];
+    NextCenter=Stanfordmove(initparam,param,NextCenter);
+    
+    param2=[0,100,0.2,0,180,90];
+    NextCenter=Stanfordmove(param,param2,NextCenter);
+    
+    
 elseif g==8
-
-
-NextCenter=[-0.8654;0.3793;0.7620];
-param=[10,90,0.2,0,180,0];
-NextCenter=Stanfordmove(initparam,param,NextCenter);
-
-param2=[10,100,0.2,0,180,0];
-NextCenter=Stanfordmove(param,param2,NextCenter);
-
-
-param3=[0,100,0.2,0,180,0];
-NextCenter=Stanfordmove(param2,param3,NextCenter);
-
-param4=[10,100,0.2,0,180,0];
-NextCenter=Stanfordmove(param3,param4,NextCenter);
-
-param5=[10,110,0.2,0,180,0];
-NextCenter=Stanfordmove(param4,param5,NextCenter);
-
-param6=[0,110,0.2,0,180,0];
-NextCenter=Stanfordmove(param5,param6,NextCenter);
-
-param7=[0,90,0.2,0,180,0];
-NextCenter=Stanfordmove(param6,param7,NextCenter);
-
-
-
+    
+    
+    NextCenter=[-0.8654;0.3793;0.7620];
+    param=[10,90,0.2,0,180,0];
+    NextCenter=Stanfordmove(initparam,param,NextCenter);
+    
+    param2=[10,100,0.2,0,180,0];
+    NextCenter=Stanfordmove(param,param2,NextCenter);
+    
+    
+    param3=[0,100,0.2,0,180,0];
+    NextCenter=Stanfordmove(param2,param3,NextCenter);
+    
+    param4=[10,100,0.2,0,180,0];
+    NextCenter=Stanfordmove(param3,param4,NextCenter);
+    
+    param5=[10,110,0.2,0,180,0];
+    NextCenter=Stanfordmove(param4,param5,NextCenter);
+    
+    param6=[0,110,0.2,0,180,0];
+    NextCenter=Stanfordmove(param5,param6,NextCenter);
+    
+    param7=[0,90,0.2,0,180,0];
+    NextCenter=Stanfordmove(param6,param7,NextCenter);
+    
+    
+    
 elseif g==9
-
-
-NextCenter=[-0.8654;0.3793;0.7620];
-param=[0,110,0.2,0,180,0];
-NextCenter=Stanfordmove(initparam,param,NextCenter);
-
-param2=[-10,110,0.2,0,180,0];
-NextCenter=Stanfordmove(param,param2,NextCenter);
-
-
-param3=[-10,100,0.2,0,180,0];
-NextCenter=Stanfordmove(param2,param3,NextCenter);
-
-param4=[0,100,0.2,0,180,0];
-NextCenter=Stanfordmove(param3,param4,NextCenter);
-
-param5=[0,90,0.2,0,180,0];
-NextCenter=Stanfordmove(param4,param5,NextCenter);
-
-param6=[-10,90,0.2,0,180,-90];
-NextCenter=Stanfordmove(param5,param6,NextCenter);
-
-
-
-    end
+    
+    
+    NextCenter=[-0.8654;0.3793;0.7620];
+    param=[0,110,0.2,0,180,0];
+    NextCenter=Stanfordmove(initparam,param,NextCenter);
+    
+    param2=[-10,110,0.2,0,180,0];
+    NextCenter=Stanfordmove(param,param2,NextCenter);
+    
+    
+    param3=[-10,100,0.2,0,180,0];
+    NextCenter=Stanfordmove(param2,param3,NextCenter);
+    
+    param4=[0,100,0.2,0,180,0];
+    NextCenter=Stanfordmove(param3,param4,NextCenter);
+    
+    param5=[0,90,0.2,0,180,0];
+    NextCenter=Stanfordmove(param4,param5,NextCenter);
+    
+    param6=[-10,90,0.2,0,180,-90];
+    NextCenter=Stanfordmove(param5,param6,NextCenter);
+    
+    
+    
+end
 
 end
 
@@ -258,15 +259,15 @@ while(i==1)
             if(initparam(3)>finalparam(3))
                 if(abs(initparam(3)-finalparam(3))>0.0000000001)
                     
-                initparam(3)=initparam(3)-0.01;
-                i=1;
+                    initparam(3)=initparam(3)-0.01;
+                    i=1;
                 end
                 
             elseif(initparam(3)<finalparam(3))
-                 if(abs(initparam(3)-finalparam(3))>0.0000000001)
+                if(abs(initparam(3)-finalparam(3))>0.0000000001)
                     
-                initparam(3)=initparam(3)+0.01;
-                i=1;
+                    initparam(3)=initparam(3)+0.01;
+                    i=1;
                 end
             end
             
@@ -281,8 +282,8 @@ while(i==1)
             end
             
         end
-            
-            
+        
+        
         
         
     end
@@ -312,9 +313,9 @@ end
 
 function [T] = getTransformMatrix(theta, d, a, alpha)
 T = [cosd(theta) -sind(theta) * cosd(alpha) sind(theta) * sind(alpha) a * cosd(theta);...
-     sind(theta) cosd(theta) * cosd(alpha)  -cosd(theta) * sind(alpha) a * sind(theta);...
-     0,sind(alpha),cosd(alpha),d;...
-     0,0,0,1];
+    sind(theta) cosd(theta) * cosd(alpha)  -cosd(theta) * sind(alpha) a * sind(theta);...
+    0,sind(alpha),cosd(alpha),d;...
+    0,0,0,1];
 end
 
 function nextCenter=oneplot(prevcenter,T)
